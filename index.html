@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grupo Renovado | Música Norteña y Sierreña</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="nav-container">
+        <img
+          src="resources/logo.jpg"
+          alt="Logo Grupo Renovado"
+          class="nav-logo"
+        />
+        <ul class="nav-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#sobre">Sobre Nosotros</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#videos">Videos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <img
+          src="resources/logo.jpg"
+          alt="Logo Grupo Renovado"
+          class="hero-logo"
+        />
+        <h1>Grupo Renovado</h1>
+        <p class="tagline">Música norteña y sierreña para tus eventos</p>
+        <p class="slogan">
+          🎵 El ritmo que pone a bailar a todo Talpa y más allá 🎵
+        </p>
+      </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section id="sobre" class="section about">
+      <div class="text">
+        <h2>Sobre Nosotros</h2>
+        <p>
+          Somos <strong>Grupo Renovado</strong>, una agrupación originaria de
+          <strong>Talpa de Allende, Jalisco</strong>, dedicada a ofrecer lo
+          mejor de la música norteña y sierreña para todo tipo de eventos.
+        </p>
+        <p>
+          Nuestra propuesta combina la energía moderna con las raíces
+          tradicionales del norte mexicano, brindando un ambiente alegre y
+          auténtico en cada presentación. Con un sonido profesional y repertorio
+          variado, llenamos de ritmo y emoción cada escenario.
+        </p>
+      </div>
+      <div class="image">
+        <img src="resources/Grupo.jpg" alt="Foto del grupo" />
+      </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section id="galeria" class="section gallery">
+      <h2>Galería</h2>
+      <div class="grid">
+        <img src="resources/Grupo.jpg" alt="Presentación del grupo" />
+        <img src="resources/logo.jpg" alt="Logo Grupo Renovado" />
+        <img src="resources/Grupo.jpg" alt="Evento en vivo" />
+        <img src="resources/logo.jpg" alt="Escenario" />
+      </div>
+    </section>
+
+    <!-- VIDEOS -->
+    <section id="videos" class="section videos">
+      <h2>Videos</h2>
+      <p>
+        Mira algunas de nuestras presentaciones y producciones más recientes:
+      </p>
+      <div class="video-grid">
+        <video controls>
+          <source src="videos/video1.mp4" type="video/mp4" />
+        </video>
+        <video controls>
+          <source src="videos/video2.mp4" type="video/mp4" />
+        </video>
+        <video controls>
+          <source src="videos/video3.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section contact">
+      <h2>Contacto</h2>
+      <div class="contact-info">
+        <p><strong>Teléfono / WhatsApp:</strong> 388 102 3550</p>
+        <p>
+          <strong>Correo electrónico:</strong>
+          <a href="mailto:eortegamartinez67@gmail.com"
+            >eortegamartinez67@gmail.com</a
+          >
+        </p>
+        <p><strong>Ubicación:</strong> Talpa de Allende, Jalisco, México</p>
+        <div class="social">
+          <a
+            href="https://www.instagram.com/grupo_renovadofical"
+            target="_blank"
+            >Instagram</a
+          >
+          <a
+            href="https://www.facebook.com/gruporenovado_oficial"
+            target="_blank"
+            >Facebook</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Grupo Renovado | Todos los derechos reservados</p>
+    </footer>
+
+    <!-- SCRIPT: SCROLL SUAVE -->
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
