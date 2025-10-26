@@ -7,6 +7,7 @@
   <title>Grupo Renovado | Música Norteña</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="resources/logo.jpg">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -32,6 +33,7 @@
       <h1>Grupo Renovado</h1>
       <p class="tagline">Música Norteña y Sierreña para tus eventos</p>
       <p class="slogan">Desde Talpa de Allende, Jalisco</p>
+      <a href="https://wa.me/523881023550?text=Hola%20Grupo%20Renovado%2C%20quiero%20contratar%20sus%20servicios" target="_blank" class="cta-btn">📞 Contrátanos por WhatsApp</a>
     </div>
   </section>
 
@@ -69,15 +71,10 @@
     <h2>Videos</h2>
     <p>Disfruta algunos de nuestros mejores momentos en vivo y grabaciones.</p>
     <div class="video-grid">
-      <!-- 👉 Aquí puedes añadir tus videos .mp4 -->
-      <!-- Ejemplo -->
-      
       <video src="resources/videos/MUJER INFIEL.mp4" controls></video>
       <video src="resources/videos/MujerMujer.mp4" controls></video>
       <video src="resources/videos/ElNogalito.mp4" controls></video>
       <video src="resources/videos/TusMentiras.mp4" controls></video>
-      
-      <!-- Agrega más según necesites -->
     </div>
   </section>
 
@@ -86,13 +83,14 @@
     <h2>Contacto</h2>
     <div class="contact-info">
       <p><strong>📍 Dirección:</strong> Talpa de Allende, México, 48200</p>
-      <p><strong>📞 Celular:</strong> <a href="tel:+523881023550">388 102 3550</a></p>
-      <p><strong>✉️ Correo:</strong> <a href="mailto:eortegamartinez67@gmail.com">eortegamartinez67@gmail.com</a></p>
+      <p><strong>📞 Celular:</strong> 388 102 3550</p>
+      <p><strong>✉️ Correo:</strong> eortegamartinez67@gmail.com</p>
     </div>
 
     <div class="social">
-      <a href="https://www.instagram.com/grupo_renovadofical" target="_blank">Instagram</a>
-      <a href="https://www.facebook.com/gruporenovado_oficial" target="_blank">Facebook</a>
+      <a href="https://wa.me/523881023550" target="_blank" class="social-icon whatsapp"><i class='bx bxl-whatsapp'></i></a>
+      <a href="https://www.instagram.com/grupo_renovadofical" target="_blank" class="social-icon instagram"><i class='bx bxl-instagram'></i></a>
+      <a href="https://www.facebook.com/gruporenovado_oficial" target="_blank" class="social-icon facebook"><i class='bx bxl-facebook-circle'></i></a>
     </div>
   </section>
 
@@ -100,5 +98,65 @@
   <footer>
     <p>© 2025 Grupo Renovado | Todos los derechos reservados</p>
   </footer>
+  
+  <script>
+(function(){
+  // Espera a que el DOM esté listo
+  document.addEventListener('DOMContentLoaded', function() {
+    // Calcula la altura actual del nav (por si cambia en responsive)
+    function getNavOffset() {
+      const nav = document.querySelector('nav');
+      return nav ? nav.offsetHeight : 0;
+    }
+
+    // Función principal para desplazar suavemente a un objetivo (toma en cuenta offset)
+    function smoothScrollTo(targetEl) {
+      if (!targetEl) return;
+      const navOffset = getNavOffset();
+      // Coordenada del top del elemento respecto al documento
+      const targetPos = targetEl.getBoundingClientRect().top + window.pageYOffset;
+      // Posición final restando la altura del nav (y un pequeño padding)
+      const scrollTo = Math.max(0, Math.round(targetPos - navOffset - 8));
+      window.scrollTo({
+        top: scrollTo,
+        behavior: 'smooth'
+      });
+    }
+
+    // Manejador de clics para enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        // evita enlaces vacíos como "#"
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          smoothScrollTo(target);
+          // Actualiza el hash sin saltar instantáneamente (para mantener el historial)
+          history.pushState(null, '', href);
+        }
+      });
+    });
+
+    // Si la página se carga con hash en la URL, hacer scroll al destino (considerando nav)
+    if (window.location.hash) {
+      const id = window.location.hash;
+      // Delay corto para que todo calcule tamaños (útil en mobile)
+      setTimeout(() => {
+        const target = document.querySelector(id);
+        if (target) smoothScrollTo(target);
+      }, 50);
+    }
+
+    // Opcional: al redimensionar la ventana, no hacemos nada automático,
+    // pero si quieres re-alinear al cambiar tamaño, puedes descomentar:
+    // window.addEventListener('resize', () => { if (window.location.hash) smoothScrollTo(document.querySelector(window.location.hash)); });
+
+  });
+})();
+</script>
+
 </body>
+
 </html>
